@@ -2,9 +2,26 @@ package com.Encapsulation.Practice;
 
 public class Bank {
 
-	public int accountNo = 123456;
-	private int pinNo = 1234;
-	private double balanceAmount = 100000;
+	public int accountNo = 123456; //Instance Variable
+	private int pinNo = 1234; //Instance Variable
+	private double balanceAmount = 100000; //Instance Variable
+	
+
+	public double getBalanceAmount() {
+		return balanceAmount;
+	}
+
+	public void setBalanceAmount(double balanceAmount) {
+		this.balanceAmount = balanceAmount;
+	}
+
+	public int getAccountNo() {
+		return accountNo;
+	}
+
+	public void setPinNo(int pinNo) {
+		this.pinNo = pinNo;
+	}
 
 	public void withdrawAmount(int accNo, int pin, int amount) {
 		if (accNo == accountNo && pin == pinNo)
@@ -23,6 +40,14 @@ public class Bank {
 			System.out.println("Pin Changed Successfully!");
 		} else
 			System.out.println("Invalid Credentials!!!");
+	}
+	
+	public double depositCash(int accNo, int pin, double amount)
+	{
+		if (accNo == accountNo && pin == pinNo)
+			balanceAmount = balanceAmount+amount;
+		else System.out.println("Invalid Credentials!!");
+		return balanceAmount;
 	}
 
 }
